@@ -14,11 +14,10 @@ pipeline {
                     node --version
                     npm --version
                     npm ci
-                    nmp run build
+                    npm run build
                     la -la
                 '''
             }
         }
         
     }
-}
