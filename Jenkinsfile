@@ -18,16 +18,17 @@ pipeline {
                     npm run build
                     ls -la
                 '''
-            } 
+            }
         }
 
-            stage('Build') {
-                agent {
-                    docker {
-                         image 'node:18-alpine'
-                         reuseNode true
-                    }
-                }     
+
+        stage('Build') {
+            agent {
+                docker {
+                    image 'node:18-alpine'
+                    reuseNode true
+                }
+            }     
 
             stage('Test') {
                 sh '''
@@ -35,6 +36,6 @@ pipeline {
                     npm test
                 '''
             }
-        }             
+         }             
     }
 }
