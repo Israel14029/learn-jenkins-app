@@ -1,0 +1,13 @@
+---
+- name: Configuration NTP 
+  hosts: all
+  remote_user: student
+  become: true
+  vars:
+    timesync_ntp_servers:
+    - hostname: 172.25.254.254
+      iburst: true
+  roles:
+    - rhel-system-roles.timesync
+  tasks:
+    - command: timedatectl set-ntp true
